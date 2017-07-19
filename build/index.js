@@ -5,6 +5,17 @@
   async = require('async');
 
   module.exports = function(ndx) {
+    var generateID;
+    generateID = function(num) {
+      var chars, i, output;
+      chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      output = '';
+      i = 0;
+      while (i++ < num) {
+        output += chars[Math.floor(Math.random() * chars.length)];
+      }
+      return output;
+    };
     return ndx.shortToken = {
       fetch: function(token, cb) {
         return ndx.database.select('shorttoken', {
@@ -24,7 +35,7 @@
           return id === null;
         }, function(callback) {
           var testid;
-          testid = ndx.generateID(8);
+          testid = generateID(8);
           return ndx.database.select('shorttoken', {
             short: testid
           }, function(tokens) {

@@ -2,6 +2,13 @@
 async = require 'async'
 
 module.exports = (ndx) ->
+  generateID = (num) ->
+    chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+    output = ''
+    i = 0
+    while i++ < num
+      output += chars[Math.floor(Math.random() * chars.length)]
+    output
   ndx.shortToken =
     fetch: (token, cb) ->
       ndx.database.select 'shorttoken',
@@ -16,7 +23,7 @@ module.exports = (ndx) ->
       async.whilst ->
         return id is null
       , (callback) ->
-        testid = ndx.generateID 8
+        testid = generateID 8
         ndx.database.select 'shorttoken',
           short: testid
         , (tokens) ->
