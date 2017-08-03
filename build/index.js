@@ -28,6 +28,11 @@
           }
         });
       },
+      remove: function(token) {
+        return ndx.database["delete"]('shorttoken', {
+          short: token
+        });
+      },
       generate: function(longToken, cb) {
         var id;
         id = null;

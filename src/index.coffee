@@ -18,6 +18,9 @@ module.exports = (ndx) ->
           cb null, tokens[0].long
         else
           cb 'No token'
+    remove: (token) ->
+      ndx.database.delete 'shorttoken',
+        short: token
     generate: (longToken, cb) ->
       id = null
       async.whilst ->
