@@ -55,7 +55,7 @@
           ndx.database.insert('shorttoken', {
             short: id,
             long: longToken
-          });
+          }, true);
           return cb(id);
         });
       }

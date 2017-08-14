@@ -39,4 +39,5 @@ module.exports = (ndx) ->
         ndx.database.insert 'shorttoken',
           short: id
           long: longToken
+        , true
         cb id

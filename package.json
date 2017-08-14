@@ -1,6 +1,6 @@
 {
   "name": "ndx-short-token",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "generate short tokens from long tokens for ndx-framework",
   "main": "build/index.js",
   "scripts": {
